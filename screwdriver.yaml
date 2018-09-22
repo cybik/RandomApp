@@ -1,5 +1,5 @@
 shared:
-  image: buildpack-deps
+  image: runmymind/docker-android-sdk
 
 jobs:
   main:
