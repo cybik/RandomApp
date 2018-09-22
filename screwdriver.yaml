@@ -1,0 +1,10 @@
+shared:
+  image: buildpack-deps
+
+jobs:
+  main:
+    requires: [~pr, ~commit]
+    steps:
+      - export: echo 'Hello, building now!'
+      - run_arbitrary_script: ./gradlew
+      - cleanup: echo 'All done, bye!'
