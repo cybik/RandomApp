@@ -13,5 +13,5 @@ jobs:
     requires: [template]
     template: screwdriver/template-publish
     steps:
-       - prebuild: mv sd-template-publish.yaml sd-template.yaml
+       - prebuild: mv sd-template-android.yaml sd-template.yaml
        - postbuild: echo 'Job's done.'
