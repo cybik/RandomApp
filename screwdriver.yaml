@@ -13,13 +13,8 @@ jobs:
         requires: [template]
         template: screwdriver/template-publish
         steps:
-            - preinstall: echo 'Starting build.'
-            - postpublish: echo 'Job's done.'
+            - preinstall: echo 'Publishing Android template.'
+            - postpublish: echo 'Template published.'
         environment:
               SD_TEMPLATE_PATH: './sd-template-android.yaml'
-    main:
-        requires: [template, android]
-        template: screwdriver/template-android
-        steps:
-            - prebuild: echo 'Starting build.'
-            - postbuild: echo 'Job's done.'
+
