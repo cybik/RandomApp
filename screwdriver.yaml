@@ -19,7 +19,7 @@ jobs:
               SD_TEMPLATE_PATH: './sd-template-android.yaml'
     main:
         requires: [android]
-        template: screwdriver/android-build
+        template: screwdriver/template-android
         steps:
             - prebuild: echo 'Starting build.'
             - postbuild: echo 'Job's done.'

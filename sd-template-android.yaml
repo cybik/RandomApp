@@ -1,4 +1,4 @@
-name: screwdriver/android-build
+name: screwdriver/template-android
 version: 0.0.1
 description: Builds some Android apps
 maintainer: me@home@work.com
