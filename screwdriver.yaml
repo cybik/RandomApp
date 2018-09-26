@@ -1,20 +1,19 @@
 shared:
-  image: node:6
+    image: node:6
 
 jobs:
-  template:
-    requires: [~pr, ~commit]
-    steps:
-      - prep: npm install screwdriver-template-main
-      - publish: node ./node_modules/.bin/template-publish
-      - cleanup: echo 'Template loaded.'
-    environment:
-      SD_TEMPLATE_PATH: './sd-template-publish.yaml'
-  build:
-    requires: [template]
-    template: screwdriver/template-publish
-    steps:
-       - prebuild: echo 'Starting build.'
-       - postbuild: echo 'Job's done.'
-    environment:
-      SD_TEMPLATE_PATH: './sd-template-android.yaml'
+    main:
+        requires: [~pr, ~commit]
+        steps:
+            - prep: npm install screwdriver-template-main
+            - template: node ./node_modules/.bin/template-publish
+        environment:
+              SD_TEMPLATE_PATH: './sd-template-publish.yaml'
+    build:
+        requires: [template]
+        template: screwdriver/template-publish
+        steps:
+            - prebuild: echo 'Starting build.'
+            - postbuild: echo 'Job's done.'
+        environment:
+              SD_TEMPLATE_PATH: './sd-template-android.yaml'
