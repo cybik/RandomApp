@@ -9,7 +9,6 @@ jobs:
             - template: node ./node_modules/.bin/template-publish
         environment:
               SD_TEMPLATE_PATH: './sd-template-publish.yaml'
-              SD_API_URL: 'http://192.168.0.34:9001'
     android:
         requires: [template]
         template: screwdriver/template-publish
@@ -18,6 +17,5 @@ jobs:
             - postpublish: echo 'Template published.'
         environment:
               SD_TEMPLATE_PATH: './sd-template-android.yaml'
-              SD_API_URL: 'http://192.168.0.34:9001'
 
 
