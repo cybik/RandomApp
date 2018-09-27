@@ -1,4 +1,4 @@
 jobs:
     android:
-        template: screwdriver/android-builder
+        template: screwdriver/android-build
         requires: [~pr, ~commit]
