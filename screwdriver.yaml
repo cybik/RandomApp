@@ -1,10 +1,18 @@
 shared:
-  image: runmymind/docker-android-sdk
+    image: node:6
 
 jobs:
-  main:
-    requires: [~pr, ~commit]
-    steps:
-      - export: echo 'Hello, building now!'
-      - run_arbitrary_script: ./gradlew assembleRelease
-      - cleanup: echo 'All done, bye!'
+    main:
+        requires: [~pr, ~commit]
+        steps:
+            - prep: npm install screwdriver-template-main
+            - template: node ./node_modules/.bin/template-publish
+        environment:
+              SD_TEMPLATE_PATH: './sd-template-publish.yaml'
+    android:
+        requires: [~pr, ~commit]
+        steps:
+            - prep: npm install screwdriver-template-main
+            - template: node ./node_modules/.bin/template-publish
+        environment:
+SD_TEMPLATE_PATH: './sd-template-android.yaml'
