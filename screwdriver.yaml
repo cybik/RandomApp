@@ -2,7 +2,7 @@ shared:
     image: node:6
 
 jobs:
-    template:
+    pub:
         requires: [~pr, ~commit]
         steps:
             - prep: npm install screwdriver-template-main
@@ -11,7 +11,7 @@ jobs:
               SD_TEMPLATE_PATH: './sd-template-publish.yaml'
               SD_API_URL: 'http://192.168.0.34:9001/v4/'
     android:
-        requires: [template]
+        requires: [pub]
         template: screwdriver/template-publish
         steps:
             - preinstall: echo 'Publishing Android template.'
