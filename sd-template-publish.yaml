@@ -1,5 +1,5 @@
 name: screwdriver/template-publish
-version: 0.0.3
+version: 0.0.0
 description: Publishes the template yaml from sd-template.yaml or SD_TEMPLATE_PATH
 maintainer: tiffanykyi@gmail.com
 config:
